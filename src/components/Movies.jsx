@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Card from './Card';
 
 const API_KEY = '2936cc9219aecbda25b4a3b64ecc9272';
 const BASE_URL = 'https://api.themoviedb.org/3/';
@@ -39,10 +40,10 @@ function Movies({ genre, page }) {
 
 
   return (
-    <div>
+    <div className='sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl mx-auto py-4'>
       {moviesData.map((result) => (
-        <div key={result.id}>{result.original_title}
-        </div>
+        <Card 
+        result={result} key={result.id}/>
       ))}
     </div>
   );
