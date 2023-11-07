@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import Card from './Card';
 
-const API_KEY = '2936cc9219aecbda25b4a3b64ecc9272';
-const BASE_URL = 'https://api.themoviedb.org/3/';
+const API_KEY = process.env.API_KEY;
+const BASE_URL = process.env.BASE_URL;
 
 
 
