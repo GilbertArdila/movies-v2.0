@@ -8,7 +8,7 @@ import Movies from '@/components/Movies';
 
 export default function Home({ searchParams }) {
 
-  const genre = searchParams.genre || 'fetchTrending';
+  const genre = searchParams.genre ;
   const [page, setPage] = useState(1);
 
   const handleIncrementPage = () => {

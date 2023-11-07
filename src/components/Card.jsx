@@ -19,7 +19,7 @@ const Card = ({ result }) => {
       />
        <div className='p-2'>
          <p className='line-clamp-2 text-md '>{result.overview}</p>
-         <h2 className='truncate text-lg font-bold'>{result.title || result.original_title}</h2>
+         <h2 className='truncate text-lg font-bold'>{result.title || result.original_title || result.name}</h2>
          <p className='flex items-center'>{result.release_date || result.first_air_date}
          <FaRegThumbsUp className='h-5 mr-1 ml-3'/>{result.vote_count}<span className='font-bold ml-2'>{' Rating: '}{result.vote_average}{'%'}</span></p>
          <p>{!result.adult ? 'for chlidren' : 'for adults only' }</p>

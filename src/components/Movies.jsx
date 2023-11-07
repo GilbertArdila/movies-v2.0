@@ -7,10 +7,19 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 
 
 async function fetchMoviesData(genre, page) {
-  const response = await fetch(
+  let response;
+
+  //if genre does not exist then show the main movies list, if exist show the gender we are looking for (trending/top rated)
+  if(!genre){
+     response = await fetch( `${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=${page},
+    { next: { revalidate: 10000 }`)
+  }else{
+     response = await fetch(
     `${BASE_URL}${genre === 'fetchTopRated' ? 'movie/top_rated' : 'trending/all/week'}?api_key=${API_KEY}&language=en-US&page=${page}`,
     { next: { revalidate: 10000 } }
   );
+  }
+  
 
   if (!response.ok) {
     throw new Error('Failed to fetch data');
