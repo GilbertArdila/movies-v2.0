@@ -24,7 +24,7 @@ const SearchBox = () => {
             <input 
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            type='text' placeholder='Search movies...' className='w-full h-14 rounded-sm placeholder-gray-500 text-gray-500 outline-none bg-gray-100 flex-1 '/>
+            type='text' placeholder='Search movies...' className='w-full h-14 rounded-sm placeholder-gray-500 text-gray-500 outline-none bg-gray-100 flex-1 p-2 '/>
             <button 
             disabled={!search}
             type='submit' className='text-2xl text-amber-500 disabled:text-gray-400 bg-gray-100 h-14 w-auto p-4 rounded-sm border-2 border-amber-500'><AiOutlineSearch/></button>
