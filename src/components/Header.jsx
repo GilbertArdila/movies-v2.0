@@ -16,7 +16,7 @@ const Header = () => {
             <div className='flex items-center space-x-5'>
                 <DarkModeSwitch/>
                 <Link href='/'>
-                    <h2 className='text-2xl p-2 hover:scale-95 transform transition-transform duration-300 ease-in-out'><span className='font-bold bg-amber-500 py-1 px-2 rounded-lg mr-1 '>MovieApi</span><span className='text-xl hidden sm:inline mx-2'>V2</span></h2>
+                    <h2 className='text-2xl p-2 hover:scale-95 transform transition-transform duration-300 ease-in-out'><span className='font-bold bg-amber-500 py-1 px-2 rounded-lg mr-1 '>Movies+</span><span className='text-xl hidden sm:inline mx-2'>V2</span></h2>
                 </Link>
             </div>
         </div>

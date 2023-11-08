@@ -11,7 +11,7 @@ async function fetchMoviesData(genre, page) {
 
   //if genre does not exist then show the main movies list, if exist show the gender we are looking for (trending/top rated)
   if(!genre){
-     response = await fetch( `${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=${page},
+     response = await fetch( `${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US,
     { next: { revalidate: 10000 }`)
   }else{
      response = await fetch(
@@ -26,7 +26,7 @@ async function fetchMoviesData(genre, page) {
   }
 
   const data = await response.json();
-  console.log(data.results)
+  
   return data.results;
 }
 
