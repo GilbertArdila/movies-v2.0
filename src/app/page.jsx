@@ -1,5 +1,5 @@
 'use client';
-
+export const dynamic='force-dynamic';
 import './globals.css';
 import { useState, useContext } from 'react';
 
