@@ -1,19 +1,20 @@
 'use client';
 
 import './globals.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import {BiSkipNext} from 'react-icons/bi';
 import {BiSkipPrevious} from 'react-icons/bi';
 
 import Movies from '@/components/Movies';
+import { langContext } from './context/page';
 
 
 export default function Home({ searchParams }) {
-  console.log('search params: ',searchParams);
+  const context = useContext(langContext) 
   const genre = searchParams.genre ;
   const [page, setPage] = useState(1);
-
+ 
   const handleIncrementPage = () => {
     if (page === 20) {
       setPage(1)
@@ -33,7 +34,7 @@ export default function Home({ searchParams }) {
   };
   return (
     <>
-    {/**si estamos en la vista de peliculas no ponemos los bótones pues no recibe el parametro page */}
+    {/**the main view (movies) does not get page params */}
     {searchParams.genre && (
       <div className='flex items-center justify-between p-4 '>
        
@@ -47,7 +48,7 @@ export default function Home({ searchParams }) {
     )}
          
       <div>
-        <Movies genre={genre} page={page} />
+        <Movies genre={genre} page={page} context={context} />
 
       </div>
       

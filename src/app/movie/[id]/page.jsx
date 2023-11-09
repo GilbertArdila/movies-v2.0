@@ -1,14 +1,14 @@
-import { getNamedRouteRegex } from "next/dist/shared/lib/router/utils/route-regex";
-import Image from "next/image";
+import Image from 'next/image';
 
 
 const BASE_URL = process.env.BASE_URL;
 const API_KEY = process.env.API_KEY;
 
 const  MoviePage = async ({params}) => {
-  
+ 
+
   const {id} = params;
-  const response = await fetch(`${BASE_URL}movie/${id}?api_key=${API_KEY}&language=en-US`);
+  const response = await fetch(`${BASE_URL}movie/${id}?api_key=${API_KEY}&language=en-USA`);
   const movie = await response.json();
 
  
@@ -36,7 +36,7 @@ const  MoviePage = async ({params}) => {
          <p className='mb-3 '><span className='font-semibold mr-1 '>Date Released:</span>{movie.release_date || movie.first_air_date}</p>
          <p className='mb-3'><span className='font-semibold mr-1 '>Rating:</span>{movie.vote_count}</p>
          <p className='mb-3'><span className='font-semibold mr-1 '>Average:</span>{movie.vote_average}/10</p>
-         <p>Genres: {movie.genres.map((genre, index) => (
+         <p>Genres: {movie.genres && movie.genres.map((genre, index) => (
           <span key={genre.id }>{genre.name}{index < movie.genres.length - 1 ? ', ' : ''}</span>
          )
          )}</p>

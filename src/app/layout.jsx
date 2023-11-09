@@ -3,6 +3,7 @@ import Providers from './Providers';
 import Navbar from '@/components/Navbar';
 import SearchBox from '@/components/SearchBox';
 
+
 export const metadata = {
   title: 'The movie App V2',
   description: 'This the new movie App version',
@@ -15,13 +16,13 @@ export default function RootLayout({ children }) {
         <Providers>
 
           <Header />
-          <Navbar/>
-          <SearchBox/>
-        {/**search */}
-        {children}
+          <Navbar />
+          <SearchBox />
+
+          {children}
         </Providers>
-        </body>
-        
+      </body>
+
     </html>
   )
 }

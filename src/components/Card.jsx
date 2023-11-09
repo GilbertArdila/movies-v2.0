@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaRegThumbsUp} from 'react-icons/fa';
@@ -28,7 +29,7 @@ const Card = ({ result }) => {
          <p className='flex items-center'>{result.release_date || result.first_air_date}
          <FaRegThumbsUp className='h-5 mr-1 ml-3'/>{result.vote_count}</p>
          <span className='font-bold '>{' Rating: '}{result.vote_average}/10</span>
-         <p>{!result.adult ? 'for chlidren' : 'for adults only' }</p>
+         <p>{!result.adult ? 'for children' : 'for adults only' }</p>
        </div>
 
     </Link>

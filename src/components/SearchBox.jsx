@@ -1,8 +1,6 @@
 'use client';
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
 import {AiOutlineSearch} from 'react-icons/ai';
 
 const SearchBox = () => {
@@ -13,6 +11,8 @@ const SearchBox = () => {
     e.preventDefault();
     if(!search) return;
     router.push(`/search/${search}`);
+    
+   
     setSearch('');
   }
 
