@@ -20,7 +20,7 @@ const DarkModeSwitch = () => {
     
 
     return (
-        <div className='hover:cursor-pointer hover:text-amber-500 text-xl'
+        <div className='hover:cursor-pointer hover:text-amber-500 text-xl mr-2'
 
         >
             {mounted && (currenTheme === 'dark' ? (<BsSunFill onClick={() => setTheme('light')} />) : (<BsFillMoonFill onClick={() => setTheme('dark')} />))}
