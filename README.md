@@ -5,6 +5,6 @@
 - Language switch is also available
 - Dark and Light mode available
 - Each movie view
--[whatch the site](http://movies-v2-0.vercel.app/)
+- -[whatch the site](http://movies-v2-0.vercel.app/)
 
 # Editor.md
