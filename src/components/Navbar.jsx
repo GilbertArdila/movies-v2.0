@@ -1,3 +1,4 @@
+'use client';
 import NavbarItem from './NavbarItem';
 import { Suspense } from 'react';
 
