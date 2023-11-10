@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { AiFillHome } from 'react-icons/ai';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
 
-import { langContext } from '@/app/context/page'; 
+import { langContext } from '@/app/context'; 
 import MenuItem from './MenuItem';
 import DarkModeSwitch from './DarkModeSwitch';
 import Image from 'next/image';

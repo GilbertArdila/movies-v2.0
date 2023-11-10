@@ -1,6 +1,6 @@
 'use client';
 import { useContext } from 'react';
-import { langContext } from '../context/page';
+import { langContext } from '../context';
 
 const About = () => {
   const context = useContext(langContext);

@@ -1,15 +1,12 @@
 'use client';
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState} from 'react';
 
 export const langContext = createContext();
 
 export const LangProvider=({children})=>{
-    const [language, setLanguage] = useState();
+    const [language, setLanguage] = useState('en-USA');
 
-    useEffect(() => {
-        const userLanguage = navigator.language;
-        setLanguage(userLanguage);
-      }, []);
+   
 
       return (
         <langContext.Provider value={

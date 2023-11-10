@@ -7,7 +7,7 @@ import {BiSkipNext} from 'react-icons/bi';
 import {BiSkipPrevious} from 'react-icons/bi';
 
 import Movies from '@/components/Movies';
-import { langContext } from './context/page';
+import { langContext } from './context';
 
 
 export default function Home({ searchParams }) {

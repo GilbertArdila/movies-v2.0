@@ -1,7 +1,7 @@
 'use client';
 
 import { ThemeProvider } from 'next-themes';
-import { LangProvider } from './context/page';
+import { LangProvider } from './context';
 
 
 const Providers = ({ children }) => {
