@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Image from 'next/image';
 
 
@@ -8,8 +9,32 @@ const  MoviePage = async ({params}) => {
  
 
   const {id} = params;
-  const response = await fetch(`${BASE_URL}movie/${id}?api_key=${API_KEY}&language=en-USA`);
-  const movie = await response.json();
+  
+
+async function fetchMovieById(id) {
+  try {
+    const response = await axios.get(`${BASE_URL}movie/${id}`, {
+      params: { api_key: API_KEY, language: 'en-USA' },
+    });
+
+    
+    const movie = response.data;
+    
+
+    return movie;
+  } catch (error) {
+    
+    console.error('Error fetching movie data:', error);
+    throw new Error('Failed to fetch movie data');
+  }
+}
+
+
+
+  const movie = await fetchMovieById(id);
+  
+
+
 
  
 

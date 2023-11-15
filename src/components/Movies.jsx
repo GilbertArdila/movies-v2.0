@@ -1,5 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import Card from './Card';
 
 const API_KEY = process.env.API_KEY;
@@ -45,28 +47,36 @@ function Movies({ genre, page, context }) {
 
 export default Movies;
 
-async function fetchMoviesData(genre, page, language) {
 
+
+async function fetchMoviesData(genre, page, language) {
   let response;
 
-  //if genre does not exist then show the main movies list, if exist show the gender we are looking for (trending/top rated)
-  if (!genre) {
-    response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}&language=${language},
-    { next: { revalidate: 10000 }`)
-  } else {
-    response = await fetch(
-      `${BASE_URL}${genre === 'fetchTopRated' ? 'movie/top_rated' : 'trending/all/week'}?api_key=${API_KEY}&language=${language}&page=${page}`,
-      { next: { revalidate: 10000 } }
-    );
-  }
+  try {
+
+    if (!genre) {
+      response = await axios.get(`${BASE_URL}discover/movie`, {
+        params: { api_key: API_KEY, language: language },
+        headers: { 'Content-Type': 'application/json' },
+      });
+    } else {
+      response = await axios.get(
+        `${BASE_URL}${genre === 'fetchTopRated' ? 'movie/top_rated' : 'trending/all/week'}`,
+        {
+          params: { api_key: API_KEY, language: language, page: page },
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+    }
 
 
-  if (!response.ok) {
+
+    return response.data.results;
+  } catch (error) {
+
+    console.error('Error fetching data:', error);
     throw new Error('Failed to fetch data');
   }
-
-  const data = await response.json();
-
-  return data.results;
 }
+
 

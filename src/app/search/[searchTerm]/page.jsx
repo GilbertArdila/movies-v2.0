@@ -1,18 +1,27 @@
 import Card from '@/components/Card';
+import axios from 'axios';
 import Image from 'next/image';
 
 const API_KEY = process.env.API_KEY;
 const BASE_URL = process.env.BASE_URL;
+let response = null;
 
 const SearchPage = async ({ params }) => {
+  try {
+    response = await axios.get(`${BASE_URL}search/movie`, {
+      params: { api_key: API_KEY, query: params.searchTerm, language: 'en-USA', include_adult: false },
+      headers: { 'Content-Type': 'application/json' }
+    })
 
-  const res = await fetch(`${BASE_URL}search/movie?api_key=${API_KEY}&query=${params.searchTerm}&language=en-US&include_adult=false`);
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
+  } catch (error) {
+    console.error('Error fetching movie data:', error);
+    throw new Error('Failed to fetch movie data');
   }
-  const data = await res.json();
-  const movies = data.results;
+
+
+  const movies = response.data.results;
+
+
 
   return (
     <div>
