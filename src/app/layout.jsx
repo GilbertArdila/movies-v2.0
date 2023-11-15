@@ -15,10 +15,13 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body >
         <Providers>
-
-          <Header />
+          <header className='sticky top-0  bg-gray-600 z-50'>
+            <Header />
           <Navbar />
           <SearchBox />
+          </header>
+
+          
 
           {children}
         </Providers>

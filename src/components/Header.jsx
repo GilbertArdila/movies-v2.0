@@ -23,7 +23,7 @@ const Header = () => {
     }
 
     return (
-        <div className='flex justify-between  max-x-6xl sm:mx-auto items-center py-6'>
+        <div className='flex justify-between  max-x-6xl sm:mx-auto items-center py-6 '>
             <div className='flex items-center '>
                 <MenuItem title={'HOME'} address={'/'} Icon={AiFillHome} />
                 <MenuItem title={'ABOUT'} address={'/about'} Icon={BsFillInfoCircleFill} />
