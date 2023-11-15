@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import { AiFillHome } from 'react-icons/ai';
 import { BsFillInfoCircleFill } from 'react-icons/bs';
-
+import { useTheme } from 'next-themes';
 import { langContext } from '@/app/context'; 
 import MenuItem from './MenuItem';
 import DarkModeSwitch from './DarkModeSwitch';
@@ -12,6 +12,8 @@ import Image from 'next/image';
 
 const Header = () => {
     const context = useContext(langContext);
+    const {  theme } = useTheme();
+
     
     function handleLanguage() {
         if (context.language === 'en-USA') {
@@ -23,7 +25,7 @@ const Header = () => {
     }
 
     return (
-        <div className='flex justify-between  max-x-6xl sm:mx-auto items-center py-6 '>
+        <div className={`${theme === 'dark' ? 'bg-gray-600': 'bg-white'}  flex justify-between  max-x-6xl sm:mx-auto items-center py-4 z-50`}>
             <div className='flex items-center '>
                 <MenuItem title={'HOME'} address={'/'} Icon={AiFillHome} />
                 <MenuItem title={'ABOUT'} address={'/about'} Icon={BsFillInfoCircleFill} />
