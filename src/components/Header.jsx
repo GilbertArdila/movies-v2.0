@@ -13,7 +13,7 @@ import Image from 'next/image';
 const Header = () => {
     const context = useContext(langContext);
     const {  theme } = useTheme();
-    console.log(theme);
+   
     
     function handleLanguage() {
         if (context.language === 'en-USA') {
